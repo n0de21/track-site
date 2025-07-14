@@ -1,183 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Phase Tracklist</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.svg" type="image/x-icon" />
-  </head>
 
-  <body>
-    <div class="logo">
-      <a href="https://www.twitch.tv/n0de21" target="_blank">
-        <img src="logo.svg" alt="n0de21 Logo" />
-      </a>
-    </div>
-    <a href="lore.html" target="_self" class="side-left">← Lore</a>
-    <a
-      href="https://n0de21.github.io/voting-site/"
-      target="_self"
-      class="side-right"
-      >Voting →</a
-    >
+<head>
+  <meta charset="UTF-8" />
+  <title>Phase Tracklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" type="image/x-icon" />
+</head>
 
-    <nav class="nav">
-      <a href="https://n0de21.github.io/voting-site/" target="_self"
-        >Signal Fate //</a
-      >
-      <a
-        href="https://n0de21.github.io/track-site/tracklist.html"
-        target="_self"
-        >Tracklist //
-      </a>
-      <a href="https://n0de21.github.io/lore-site/lore.html" target="_self"
-        >Lore //
-      </a>
-      <a href="#">Artifacts //</a>
-    </nav>
+<body>
+  <div class="logo">
+    <a href="https://www.twitch.tv/n0de21" target="_blank">
+      <img src="logo.svg" alt="n0de21 Logo" />
+    </a>
+  </div>
+  <a href="lore.html" target="_self" class="side-left">← Lore</a>
+  <a href="https://n0de21.github.io/voting-site/" target="_self" class="side-right">Voting →</a>
 
-    <div class="input">
-      <div class="button-container" id="buttons"></div>
-      <pre id="content"></pre>
-    </div>
+  <div class="page-title">Phase Tracklist</div>
+  <div class="input">
+    <div class="button-container" id="buttons"></div>
+    <pre id="content"></pre>
+  </div>
 
-    <script>
-      const phaseData = [
-        { label: "INFO", file: "tracks/info.txt", active: true },
-        {
-          label: "PHASE1_SYNTH",
-          file: "tracks/PHASE1_SYNTH.txt",
-          active: false,
-        },
-        {
-          label: "PHASE2_UPLINK",
-          file: "tracks/PHASE2_UPLINK.txt",
-          active: false,
-        },
-        {
-          label: "PHASE3_INITIATE",
-          file: "tracks/PHASE3_INITIATE.txt",
-          active: false,
-        },
-        {
-          label: "PHASE4_REVEAL",
-          file: "tracks/PHASE4_REVEAL.txt",
-          active: false,
-        },
-        {
-          label: "PHASE5_DISRUPT",
-          file: "tracks/PHASE5_DISRUPT.txt",
-          active: false,
-        },
-        {
-          label: "PHASE6_INFECT",
-          file: "tracks/PHASE6_INFECT.txt",
-          active: false,
-        },
-        {
-          label: "PHASE7_REPEAT",
-          file: "tracks/PHASE7_REPEAT.txt",
-          active: false,
-        },
-        {
-          label: "PHASE8_DIVERGE",
-          file: "tracks/PHASE8_DIVERGE.txt",
-          active: false,
-        },
-        {
-          label: "PHASE9_REDACT",
-          file: "tracks/PHASE9_REDACT.txt",
-          active: false,
-        },
-        {
-          label: "PHASE10_CONVERT",
-          file: "tracks/PHASE10_CONVERT.txt",
-          active: false,
-        },
-        {
-          label: "PHASE11_SIGNAL",
-          file: "tracks/PHASE11_SIGNAL.txt",
-          active: false,
-        },
-        {
-          label: "PHASE12_OBEY",
-          file: "tracks/PHASE12_OBEY.txt",
-          active: false,
-        },
-      ];
+  <script>
+    const phaseData = [
+      { label: "INFO", file: "tracks/info.txt", active: true },
+      {
+        label: "PHASE1_SYNTH",
+        file: "tracks/PHASE1_SYNTH.txt",
+        active: false,
+      },
+      {
+        label: "PHASE2_UPLINK",
+        file: "tracks/PHASE2_UPLINK.txt",
+        active: false,
+      },
+      {
+        label: "PHASE3_INITIATE",
+        file: "tracks/PHASE3_INITIATE.txt",
+        active: false,
+      },
+      {
+        label: "PHASE4_REVEAL",
+        file: "tracks/PHASE4_REVEAL.txt",
+        active: false,
+      },
+      {
+        label: "PHASE5_DISRUPT",
+        file: "tracks/PHASE5_DISRUPT.txt",
+        active: false,
+      },
+      {
+        label: "PHASE6_INFECT",
+        file: "tracks/PHASE6_INFECT.txt",
+        active: false,
+      },
+      {
+        label: "PHASE7_REPEAT",
+        file: "tracks/PHASE7_REPEAT.txt",
+        active: false,
+      },
+      {
+        label: "PHASE8_DIVERGE",
+        file: "tracks/PHASE8_DIVERGE.txt",
+        active: false,
+      },
+      {
+        label: "PHASE9_REDACT",
+        file: "tracks/PHASE9_REDACT.txt",
+        active: false,
+      },
+      {
+        label: "PHASE10_CONVERT",
+        file: "tracks/PHASE10_CONVERT.txt",
+        active: false,
+      },
+      {
+        label: "PHASE11_SIGNAL",
+        file: "tracks/PHASE11_SIGNAL.txt",
+        active: false,
+      },
+      {
+        label: "PHASE12_OBEY",
+        file: "tracks/PHASE12_OBEY.txt",
+        active: false,
+      },
+    ];
 
-      function clearActive() {
-        document
-          .querySelectorAll("button")
-          .forEach((b) => b.classList.remove("active"));
+    function clearActive() {
+      document
+        .querySelectorAll("button")
+        .forEach((b) => b.classList.remove("active"));
+    }
+
+    function createButtons() {
+      const container = document.getElementById("buttons");
+      const content = document.getElementById("content");
+
+      phaseData.forEach(({ label, file, active }) => {
+        const btn = document.createElement("button");
+        btn.innerText = label;
+        if (active) btn.classList.add("active");
+        btn.onclick = () => {
+          clearActive();
+          btn.classList.add("active");
+          fetch(file)
+            .then((res) => res.text())
+            .then((text) => (content.innerText = text))
+            .catch(() => (content.innerText = `[!] Failed to load ${file}`));
+        };
+        container.appendChild(btn);
+      });
+
+      for (let i = 12; i < 21; i++) {
+        const phLabel = `PHASE${i + 1}`;
+        const btn = document.createElement("button");
+        btn.innerText = phLabel;
+        btn.style.opacity = "0.1";
+        btn.disabled = true;
+        container.appendChild(btn);
       }
 
-      function createButtons() {
-        const container = document.getElementById("buttons");
-        const content = document.getElementById("content");
+      fetch("tracks/info.txt")
+        .then((res) => res.text())
+        .then((text) => (document.getElementById("content").innerText = text))
+        .catch(
+          () =>
+          (document.getElementById("content").innerText =
+            "[!] Failed to load info.txt")
+        );
+    }
 
-        phaseData.forEach(({ label, file, active }) => {
-          const btn = document.createElement("button");
-          btn.innerText = label;
-          if (active) btn.classList.add("active");
-          btn.onclick = () => {
-            clearActive();
-            btn.classList.add("active");
-            fetch(file)
-              .then((res) => res.text())
-              .then((text) => (content.innerText = text))
-              .catch(() => (content.innerText = `[!] Failed to load ${file}`));
-          };
-          container.appendChild(btn);
-        });
+    window.addEventListener("DOMContentLoaded", () => {
+      createButtons();
+    });
 
-        for (let i = 12; i < 21; i++) {
-          const phLabel = `PHASE${i + 1}`;
-          const btn = document.createElement("button");
-          btn.innerText = phLabel;
-          btn.style.opacity = "0.1";
-          btn.disabled = true;
-          container.appendChild(btn);
+    window.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll(".nav a");
+      links.forEach((link) => {
+        const linkPath = new URL(link.href).pathname;
+        if (window.location.pathname === linkPath) {
+          link.classList.add("active");
         }
-
-        fetch("tracks/info.txt")
-          .then((res) => res.text())
-          .then((text) => (document.getElementById("content").innerText = text))
-          .catch(
-            () =>
-              (document.getElementById("content").innerText =
-                "[!] Failed to load info.txt")
-          );
-      }
-
-      window.addEventListener("DOMContentLoaded", () => {
-        createButtons();
       });
+    });
+  </script>
 
-      window.addEventListener("DOMContentLoaded", () => {
-        const links = document.querySelectorAll(".nav a");
-        links.forEach((link) => {
-          const linkPath = new URL(link.href).pathname;
-          if (window.location.pathname === linkPath) {
-            link.classList.add("active");
-          }
-        });
-      });
-      
-    </script>
+  <div class="bottom-links">
+    <a href="https://www.twitch.tv/n0de21" target="_blank">Stream</a>
+    <a href="https://www.instagram.com/n0de21" target="_blank">IN</a>
+    <a href="https://www.tiktok.com/@n0de21" target="_blank">TK</a>
+    <a href="https://www.youtube.com/@n0de21sync" target="_blank">YT</a>
+  </div>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "11c560ed23354eaa947d04071870c871"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
 
-    <div class="bottom-links">
-      <a href="https://www.twitch.tv/n0de21" target="_blank">Stream</a>
-      <a href="https://www.instagram.com/n0de21" target="_blank">IN</a>
-      <a href="https://www.tiktok.com/@n0de21" target="_blank">TK</a>
-      <a href="https://www.youtube.com/@n0de21sync" target="_blank">YT</a>
-    </div>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "11c560ed23354eaa947d04071870c871"}'
-    ></script>
-    <!-- End Cloudflare Web Analytics -->
-  </body>
 </html>

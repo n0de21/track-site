@@ -91,6 +91,11 @@
         file: "tracks/PHASE12_OBEY.txt",
         active: false,
       },
+      {
+        label: "PHASE13_GLITCH",
+        file: "tracks/PHASE13_GLITCH.txt",
+        active: false,
+      },
     ];
 
     function clearActive() {
@@ -118,7 +123,7 @@
         container.appendChild(btn);
       });
 
-      for (let i = 12; i < 21; i++) {
+      for (let i = 13; i < 21; i++) {
         const phLabel = `PHASE${i + 1}`;
         const btn = document.createElement("button");
         btn.innerText = phLabel;

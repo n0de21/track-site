@@ -106,6 +106,11 @@
         file: "tracks/PHASE15_ESCAPE.txt",
         active: false,
       },
+      {
+        label: "PHASE16_INTERFERE",
+        file: "tracks/PHASE16_INTERFERE.txt",
+        active: false,
+      },
     ];
 
     function clearActive() {
@@ -133,7 +138,7 @@
         container.appendChild(btn);
       });
 
-      for (let i = 14; i < 21; i++) {
+      for (let i = 15; i < 21; i++) {
         const phLabel = `PHASE${i + 1}`;
         const btn = document.createElement("button");
         btn.innerText = phLabel;

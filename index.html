@@ -111,6 +111,11 @@
         file: "tracks/PHASE16_INTERFERE.txt",
         active: false,
       },
+      {
+        label: "PHASE17_BREAKPOINT",
+        file: "tracks/PHASE17_BREAKPOINT.txt",
+        active: false,
+      },
     ];
 
     function clearActive() {
@@ -138,7 +143,7 @@
         container.appendChild(btn);
       });
 
-      for (let i = 15; i < 21; i++) {
+      for (let i = 17; i < 21; i++) {
         const phLabel = `PHASE${i + 1}`;
         const btn = document.createElement("button");
         btn.innerText = phLabel;

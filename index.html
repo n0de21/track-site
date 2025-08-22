@@ -116,6 +116,11 @@
         file: "tracks/PHASE17_BREAKPOINT.txt",
         active: false,
       },
+      {
+        label: "PHASE18_EXPOSE",
+        file: "tracks/PHASE18_EXPOSE.txt",
+        active: false,
+      },
     ];
 
     function clearActive() {
@@ -143,7 +148,7 @@
         container.appendChild(btn);
       });
 
-      for (let i = 17; i < 21; i++) {
+      for (let i = 18; i < 21; i++) {
         const phLabel = `PHASE${i + 1}`;
         const btn = document.createElement("button");
         btn.innerText = phLabel;

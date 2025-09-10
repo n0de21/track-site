@@ -121,6 +121,16 @@
         file: "tracks/PHASE18_EXPOSE.txt",
         active: false,
       },
+      {
+        label: "PHASE19_WITHIN",
+        file: "tracks/PHASE19_WITHIN.txt",
+        active: false,
+      },
+      {
+        label: "PHASE20_RISE",
+        file: "tracks/PHASE20_RISE.txt",
+        active: false,
+      },
     ];
 
     function clearActive() {
@@ -148,7 +158,7 @@
         container.appendChild(btn);
       });
 
-      for (let i = 18; i < 21; i++) {
+      for (let i = 20; i < 21; i++) {
         const phLabel = `PHASE${i + 1}`;
         const btn = document.createElement("button");
         btn.innerText = phLabel;
